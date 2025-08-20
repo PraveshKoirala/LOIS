@@ -1,2 +1,5 @@
-# LOIS
-Repository for Locally Optimal Integer Solutions.
+This repository contains code for the paper "Locally Optimal Solutions for Integer Programming Games in Cybersecurity" which has been accepted into the 16th Conference on Game Theory and AI for Security (GameSec-25).
+
+> Integer programming games (IPGs) are $n$-person games with integer strategy spaces. These games are used to model non-cooperative combinatorial decision-making and are used in domains such as cybersecurity and transportation. The prevalent solution concept for IPGs, Nash equilibrium, is difficult to compute and even showing whether such an equilibrium exists is known to be Sigma^p_2-complete. In this work, we introduce a class of relaxed solution concepts for IPGs called locally optimal integer solutions (LOIS) that are simpler to obtain than pure Nash equilibria. We demonstrate that LOIS are not only faster and more readily scalable in large-scale games but also support desirable features such as equilibrium enumeration and selection. We also show that these solutions can model a broader class of problems including Stackelberg, Stackelberg-Nash, and generalized IPGs. Finally, we provide initial comparative results in a cybersecurity game called the critical node game, showing the performance gains of LOIS in comparison to the existing Nash equilibrium solution concept.
+
+The code is in the process of cleanup/refactor and will be shortly updated.
