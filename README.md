@@ -1,5 +1,45 @@
-This repository contains code for the paper "Locally Optimal Solutions for Integer Programming Games in Cybersecurity" which has been accepted into the 16th Conference on Game Theory and AI for Security (GameSec-25).
+# LOIS
 
-> Integer programming games (IPGs) are $n$-person games with integer strategy spaces. These games are used to model non-cooperative combinatorial decision-making and are used in domains such as cybersecurity and transportation. The prevalent solution concept for IPGs, Nash equilibrium, is difficult to compute and even showing whether such an equilibrium exists is known to be Sigma^p_2-complete. In this work, we introduce a class of relaxed solution concepts for IPGs called locally optimal integer solutions (LOIS) that are simpler to obtain than pure Nash equilibria. We demonstrate that LOIS are not only faster and more readily scalable in large-scale games but also support desirable features such as equilibrium enumeration and selection. We also show that these solutions can model a broader class of problems including Stackelberg, Stackelberg-Nash, and generalized IPGs. Finally, we provide initial comparative results in a cybersecurity game called the critical node game, showing the performance gains of LOIS in comparison to the existing Nash equilibrium solution concept.
+This repository contains the implementation for the paper *Locally Optimal Solutions for Integer Programming Games*.
 
-The code is in the process of cleanup/refactor and will be shortly updated.
+Files:
+
+- `cng.py`: synthetic critical node game generator plus payoff and feasibility helpers.
+- `lois1.py`: LOIS-1 mixed-integer model.
+- `bilevel_lois1.py`: defender-leader bilevel model.
+- `summarize_results.py`: small CSV summarizer for paper tables.
+
+## Dependencies
+
+Install:
+
+```bash
+pip install -r requirements.txt
+```
+
+## Usage
+
+Run the LOIS-1 model on one synthetic instance:
+
+```bash
+python lois1.py --size 50 --seed 6318
+```
+
+Run the bilevel variant:
+
+```bash
+python bilevel_lois1.py --size 50 --seed 6318
+```
+
+Summarize a batch of CSV outputs:
+
+```bash
+python summarize_results.py --prefix lois1cng --columns t:mean PoD:mean PoA:mean
+python summarize_results.py --prefix bilevel-lois1 --columns t:mean PoS:mean
+```
+
+## Notes
+
+- `cng.py` includes a self-contained knapsack helper used for payoff normalization.
+- Synthetic instances are generated directly from the model parameters used in the paper.
+- To reproduce paper-scale tables, run many seeds and save each script's stdout into CSVs for aggregation.
